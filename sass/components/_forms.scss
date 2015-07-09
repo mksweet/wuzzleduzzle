@@ -1,0 +1,20 @@
+
+form {
+  @include inputButton;
+  textarea, input.form-text {
+    width: 100%;
+  }
+  select {
+    padding: 0;
+    -moz-appearance: none;
+    border: 0 none;
+    cursor: pointer;
+    font-size: 16px;
+    background-color: white;
+    color: black;
+    option {
+      background-color: white;
+      color: black;
+    }
+  }
+}

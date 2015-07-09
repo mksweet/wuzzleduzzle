@@ -1,0 +1,305 @@
+/*******************************************************************************
+<<<<<<< HEAD
+ * _base.scss
+ *
+ * Base styles define the default look for HTML and common Drupal elements.
+ *
+ * These rules will generally be made up of element selectors for HTML elements
+ * such as headings, paragraphs and lists. Common Drupal elements such as form
+ * items, collapsible fieldsets and messages should be included in this partial.
+ *
+ * The styleguide module (http://drupal.org/project/styleguide) gives you a good
+ * overview of Drupal's common elements for styling. By setting a solid baseline
+=======
+ * _base.scss 
+
+ * Base styles define the default look for HTML and common Drupal elements. 
+ *
+ * These rules will generally be made up of element selectors for HTML elements
+ * such as headings, paragraphs and lists. Common Drupal elements such as form 
+ * items, collapsible fieldsets and messages should be included in this partial.
+ *
+ * The styleguide module (http://drupal.org/project/styleguide) gives you a good
+ * overview of Drupals common elements for styling. By setting a solid baseline
+>>>>>>> sandbox/7.x-4.x
+ * before adding any more specific customisations you ensure that as any new
+ * features are added they will be correctly styled without any extra work.
+ ******************************************************************************/
+
+body {
+  background: $color_mainbg;
+  color: $color_mainfg;
+  margin: 0;
+  padding: 0;
+  font: {
+    weight: normal;
+    family: Din, sans-serif;
+    size: $font_size_body;
+  }
+  line-height: $line_height_body;
+}
+
+a:link, a:visited {
+  color: $color_mainfg;
+  text-decoration: none;
+  border-bottom: 1px solid $color_highlight;
+}
+
+a:active, a:hover {
+  color: $color_mainfg;
+  border-bottom: 1px solid $color_mainfg;
+}
+
+h1, h2, h3, h4 {
+  font-weight: bold;
+  margin: 10px 0;
+  word-wrap: break-word;
+  line-height: 1.2em;
+}
+
+h1 {
+  font-size: 50px;
+  font-weight: normal;
+  margin-bottom: 30px;
+  margin-top: 0;
+}
+
+h2 {
+  a {
+    font-weight:normal;
+  }
+  a:focus,
+  a:hover {
+    background-color: $color_link_bg;
+  }
+}
+
+p {
+  margin: 0;
+  padding: 0 0 $paragraph_padding;
+}
+
+figure {
+  margin-bottom: 10px;
+  margin-right: 25px;
+}
+
+@include at-breakpoint($tab_break) {
+  .page-node h1 {
+    @include push(0);
+  }
+  .node-type-webform h1,
+  .node-type-page h1,
+  h1 {
+    font-size: 50px;
+    @include push(1);
+  }
+}
+@include at-breakpoint($desktop_break) {
+  body {
+    font-size: 18px;
+    line-height: 24px;
+  }
+  h1 {
+    @include push(2);
+  }
+  h2 {
+    font-size: 30px;
+  }
+}
+@include at-breakpoint($big_desktop_break) {
+  body {
+    font-size: 18px;
+    line-height: 23px;
+  }
+  h2 {
+    font-size: 40px;
+  }
+}
+
+/* Header */
+.html .l-header-wrapper {
+  margin-bottom: 70px;
+}
+h1.site-name {
+  @include push(0);
+  float: left;
+  font: {
+    size: 24px;
+    family: Storno, sans-serif;
+    weight: normal;
+  }
+  margin: 20px 0;
+  a:visited, a:link {
+    width: 230px;
+    background-color: $pink;
+    color: white;
+    border: 0 none;
+    padding: 15px;
+    white-space: nowrap;
+    line-height: 20px;
+    text-transform: uppercase;
+  }
+}
+
+/* Main Content */
+.l-content-wrapper {
+  .node {
+    max-width: 100%;
+  }
+  .node--full {
+    @include clearfix;
+    .white,
+    .body {
+      @include yellowLinks;
+      padding: 20px 20px 0;
+      background-color: white;
+      margin-bottom: 20px;
+      max-width: 700px;
+    }
+    img {
+      @include single-box-shadow;
+      margin: 0;
+      max-width: 100%;
+    }
+   .clear {
+      max-width: 100%;
+    }
+    .caption {
+      font-size: 12px;
+      font-family: Storno;
+      color: $color_caption;
+      text-transform: uppercase;
+    }
+    .file a.media-colorbox {
+      border: 0 none;
+      background-color: transparent;
+    }
+    .file p {
+      @extend .caption;
+    }
+  }
+  .flippy {
+    clear:both;
+  }
+}
+
+.node-type-page {
+}
+
+/* News Nodes */
+.node-type-article {
+  .node {
+    .tags, .tags a, .submitted {
+      color: $gray;
+      font-size: 20px;
+    }
+    .tags {
+      margin-bottom: 20px;
+      @include taglink;
+    }
+    h1 {
+      margin: 0;
+    }
+  }
+}
+
+.node-type-article,
+.page-news,
+.page-taxonomy-term {
+  @include at-breakpoint($tab-break) {
+    .l-content {
+      // make space for the tags on right.
+      padding-right: 20px;
+    }
+  }
+}
+
+/* PROJECT NODES */
+.node-type-project {
+  .node--full {
+    .body {
+      background-color: transparent;
+      padding: 0;
+      max-width: 100%;
+    }
+    @include at-breakpoint($tab-break) {
+      p, img, figure, blockquote {
+        display: inline-block;
+        img {
+          float: none;
+        }
+      }
+    }
+    .top-links,
+    .links {
+      text-align: center;
+      clear:both;
+      width: 100%;
+      a:link, a:visited {
+        font-size: 12px;
+        background-color: transparent;
+      }
+      a:hover, a:focus {
+        background-color: $color_link_bg;
+      }
+    }
+    .back-to-work-wrapper, .next-wrapper, .prev-wrapper {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    .top-links {
+      margin-bottom: 20px;
+      h1, .next-wrapper, .prev-wrapper {
+        margin: 0;
+      }
+      h1 {
+        text-align: left;
+      }
+    }
+    .back-to-work-wrapper {
+      @include button;
+      a.back-to-work {
+        padding: 10px;
+      }
+    }
+  }
+}
+@include at-breakpoint($desktop-break) {
+  .page-work .view-projects.view-display-id-page {
+    .view-filters {
+      @include push(2);
+    }
+  }
+}
+
+/* Footer */
+.l-footer-wrapper {
+  background-color: white;
+  margin-bottom: 0;
+}
+
+/* Homepage splash */
+body.section-homepage{
+
+  /* Hide page content */
+  .l-content-main{
+    display: none;
+  }
+
+  .homepage-splash
+
+    h1{
+      font-size:127px;
+      line-height: 130px;
+      margin:0;
+
+      &:hover{
+        color:#ec008c;
+      }
+    }
+
+    h3{
+      margin:90px 0;
+    }
+}

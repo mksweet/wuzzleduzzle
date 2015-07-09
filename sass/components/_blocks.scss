@@ -1,0 +1,405 @@
+
+#block-menu-block-1,
+#block-system-main-menu {
+  ul {
+    width: 100%;
+    clear: both;
+    @include clearListStyles;
+    li {
+      margin-bottom: 5px;
+      span {
+        @include menulink;
+        display: block;
+        padding: 8px 16px;
+        width: 100%;
+      }
+    }
+  }
+  .menu-button {
+    float: right;
+    background-color: black;
+    padding: 20px 0;
+    a:link, a:visited, a:active, a:hover {
+      @include menulink;
+      border: 0 none;
+      padding: 20px;
+    }
+  }
+  @include at-breakpoint($tab_break) {
+    .menu-button {
+      display: none;
+    }
+    ul {
+      display:block !important;
+    }
+    margin-left: 100px;
+    li {
+      display: inline-block;
+      margin: 0 0 5px;
+      span {
+        padding: 8px 16px;
+      }
+      a:hover span, a:focus span {
+        top: 10px;
+        position: relative;
+      }
+    }
+  }
+  @include at-breakpoint($desktop_break) {
+    margin-left: 200px;
+  }
+  .blue-bg span {
+    background-color: $blue;
+  }
+  .red-bg span {
+    background-color: $red;
+  }
+  .green-bg span {
+    background-color: $green;
+  }
+  .pink-bg span {
+    background-color: #d443fe;
+  }
+  .black-bg span {
+    background-color: black;
+  }
+  .orange-bg span {
+    background-color: $orange;
+  }
+  .darkorange-bg span {
+    background-color: $darkorange;
+  }
+}
+
+#block-menu-block-1 {
+  @include span-columns(12, 12);
+}
+
+/* Related blocks */
+.project-blog-posts {
+  clear: left;
+  @include at-breakpoint($desktop-break) {
+    @include pre(1);
+  }
+}
+.project-related-projects,
+.project-blog-posts {
+  @include at-breakpoint($tab-break) {
+    @include span-columns(4, 12);
+  }
+  @include at-breakpoint($desktop-break) {
+    @include span-columns(5, 16);
+  }
+  @include at-breakpoint($big-desktop-break) {
+    @include span-columns(6, 20);
+  }
+  margin-bottom: $element_margin_bottom;
+  margin-bottom: $element_margin_bottom;
+  margin-bottom: $element_margin_bottom;
+  h2 {
+    font-weight: normal;
+    border-bottom: 1px dashed black;
+  }
+  ul {
+    @include clearListStyles;
+    li {
+      @include yellowLinks;
+      margin-bottom: 20px;
+    }
+  }
+  .submitted {
+    color: $gray;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+}
+
+#block-boxes-wd-backtowork {
+  .boxes-box-content {
+    @include button;
+    a {
+      padding: 10px;
+    }
+    margin: 20px 0 $element_margin_bottom;
+  }
+}
+
+// Project page Services box.
+.services {
+  background-color: black;
+  color: white;
+  text-align:center;
+  width: 200px;
+  ul {
+    @include clearListStyles;
+    li {
+      font-size: 14px;
+      line-height: 19px;
+      padding-bottom: 7px;
+    }
+  }
+}
+
+.client-quote {
+  background-color: white;
+  max-width: 700px;
+  font-size: 14px;
+}
+
+.client-quote,
+.services {
+  padding: 20px;
+  margin: 0 25px $element_margin_bottom 0;
+  clear: left;
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  h2 {
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0 0 10px;
+    font-family: Din, sans-serif;
+    font-size: 14px;
+  }
+}
+
+#block-boxes-footer-wd-desc {
+  margin-bottom: $element_margin_bottom;
+  @include at-breakpoint($tab-break) {
+    @include span-columns(4, 12);
+  }
+  @include at-breakpoint($desktop-break) {
+    @include span-columns(4, 16);
+  }
+  @include at-breakpoint($desktop-break) {
+    @include span-columns(5, 20);
+  }
+  .boxes-box-content {
+    @include button;
+    font-size: 14px;
+    line-height: 16px;
+    .little-bird:link, .little-bird:visited, .little-bird:active, .little-bird:hover {
+      overflow: hidden;
+      display: inline-block;
+      border: 0;
+      height: 16px;
+      width: 20px;
+      background: transparent url(../images/twitter.png) no-repeat 0 0;
+      text-indent: -666px;
+    }
+  }
+}
+
+#block-boxes-twitter {
+  @include span-columns(6 omega, 12);
+  @include imageLink;
+  a {
+    background-color: black;
+    width: 35px;
+    height: 35px;
+    display: block;
+  }
+}
+
+#block-simpletwitterfeed-simple-twitter-feed {
+  margin-bottom: $element_margin_bottom;
+  @include at-breakpoint($tab-break) {
+    @include span-columns(4, 12);
+  }
+  @include at-breakpoint($desktop-break) {
+    @include span-columns(4, 16);
+  }
+  @include at-breakpoint($desktop-break) {
+    @include span-columns(5, 20);
+  }
+  ul {
+    @include clearListStyles;
+    li {
+      .tweet-text {
+        border-color: transparent;
+        border-width: 1px 1px 15px 15px;
+        -webkit-border-image: url(../images/twitter-border.png) 1 1 15 15 repeat;
+           -moz-border-image: url(../images/twitter-border.png) 1 1 15 15 repeat;
+             -o-border-image: url(../images/twitter-border.png) 1 1 15 15 repeat;
+                border-image: url(../images/twitter-border.png) 1 1 15 15 repeat;
+        display: block;
+        margin: 0px 0px 15px;
+        padding: 3px 3px 15px 0;
+        border-style: solid;
+        font-size: 14px;
+        line-height: 19px;
+      }
+      a.tweet-user, a.tweet-time_ago {
+        display: block;
+        border: none;
+        font-size: 14px;
+        line-height: 19px;
+      }
+    }
+  }
+  .twitter-more {
+    @include button;
+    margin-top: 8px;
+    font-size: 14px;
+    line-height: 19px;
+  }
+}
+
+/* SIDEBAR */
+
+.l-sidebar {
+  @include taglink;
+  .block {
+    margin: 0 0 40px;
+    border-top: 2px solid black;
+  }
+  h2.block__title {
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: normal;
+    font-family: Storno, sans-serif;
+    margin: 10px 0 10px !important;
+  }
+  .views-row {
+    border-bottom: 1px dotted $gray;
+    padding: 10px 0;
+  }
+  .views-row-last {
+    border: 0 none;
+  }
+}
+
+// Recent News - blog block.
+#block-views-blog-block-1 {
+  h2 {
+    margin: 0;
+    line-height: 16px;
+    a {
+      font-size: 16px;
+      font-weight: normal;
+      margin-bottom: 10px;
+    }
+  }
+  .posted {
+    color: $gray;
+    font-size: 14px;
+  }
+  .more-link {
+    text-align: left;
+    @include button;
+    margin-top: 20px;
+    a {
+      padding: 5px;
+      font-size: 14px;
+    }
+  }
+  .views-row {
+    padding: 10px 0;
+  }
+}
+
+#block-views-wdblog-tags-block {
+  padding-left: 40px;
+  .tag {
+    h3 {
+      margin: 0;
+      a:link, a:active, a:visited, a:hover {
+        font-size: 12px;
+        font-family: Storno, sans-serif;
+        text-transform: uppercase;
+      }
+    }
+    ul {
+      @include clearListStyles;
+      display: none;
+      text-transform: uppercase;
+      color: #777;
+      font-size: 11px;
+      float: left;
+      margin-left: -25px;
+      margin-top: -25px;
+      li {
+        width: 20px;
+        text-align: center;
+        font-size: 20px;
+      }
+    }
+  }
+  .tag:hover ul {
+    display: block;
+  }
+  @include at-breakpoint($tab-break) {
+    padding-left: 0px;
+  }
+}
+
+// References block
+#block-views-projects-block-3 {
+  a,
+  .field-content {
+    font-size: 14px;
+  }
+}
+
+#block-boxes-footer-runes {
+  height: 80px;
+  #wd {
+    float:left;
+    width: 40px;
+    background-color: $pink;
+    padding: 10px 13px;
+    color: white;
+    line-height: 20px;
+    font-family: Storno, sans-serif;
+    font-weight: bold;
+    position: relative;
+    top: 0;
+  }
+  .runes {
+    display: block;
+    margin-top: 20px;
+    width: 250px;
+    height: 55px;
+    background: url(../images/wd_dingbats.png) no-repeat;
+  }
+}
+
+#block-boxes-footer-copyright {
+  clear: both;
+  border-top: 1px dotted $gray;
+  color: $gray;
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+// We B Hiring
+#block-boxes-wd-hiring {
+  border-top: none;
+  a:link, a:visited {
+    height: 149px;
+    width: 183px;
+    text-indent: -666.666px;
+    overflow: hidden;
+    display: block;
+    background: transparent url(../images/hiring/wd_hiring_sprite.png) 0 0 no-repeat;
+  }
+  a:active, a:hover {
+    background: transparent url(../images/hiring/wd_hiring_sprite.png) 0 -169px no-repeat;
+  }
+}
+
+// Messages
+.messages {
+  border: 2px dashed #0f0;
+  padding: 20px 10px 10px 60px;
+  min-height: 66px; // sprites are 46px square
+  background: transparent url(../images/messages/wd_status.png) no-repeat 5px 50%;
+  &.warning {
+    background: transparent url(../images/messages/wd_warning.png) no-repeat 5px 50%;
+    border-color: #F7931E;
+  }
+  &.error {
+    background: transparent url(../images/messages/wd_error.png) no-repeat 5px 50%;
+    border-color: #f00;
+  }
+}

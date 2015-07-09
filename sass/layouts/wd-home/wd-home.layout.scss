@@ -1,0 +1,227 @@
+/*******************************************************************************
+ * _layout.scss
+ *
+ * Styling of the "simple" layout demonstrating the Compass grid extension Susy
+ * and building mobile first layouts.
+ ******************************************************************************/
+@import "../../utils/vars";
+
+.l-header-wrapper,
+.l-content-wrapper,
+.l-footer,
+.l-footer-bottom {
+  @include container; // Define these elements as the grid containers.
+  margin-bottom: $vert-spacing-unit;
+  width: auto;
+  max-width: none;
+}
+
+.l-footer {
+  margin-bottom: 0;
+}
+
+.l-sidebar {
+  clear:both;
+}
+
+.l-content {
+  // Vertical positioning classes.
+  @each $breakpoint in tablet, desktop, big-desktop {
+    @for $i from 1 to 6 {
+      .#{$breakpoint}-top-#{$i * 10} {
+        margin-top: #{$i * 10};
+      }
+      .#{$breakpoint}-bottom-#{$i * 10} {
+        margin-bottom: #{$i * 10};
+      }
+    }
+  }
+}
+
+@include at-breakpoint($tab_break) {
+  $total-columns: 12;
+
+  .l-header-wrapper,
+  .l-content-wrapper,
+  .l-footer,
+  .l-footer-bottom {
+    @include set-container-width;
+    width: $tab_width; // static width
+    &.show-columns {
+      @include susy-grid-background;
+    }
+  }
+
+  a.site-logo {
+    @include span-columns(6, $total-columns);
+  }
+
+  .l-region-branding {
+    @include span-columns(6 omega, $total-columns);
+  }
+
+  .l-content {
+    @include span-columns(8, $total-columns);
+
+    .l-content-main {
+      // Extra level of selectors to make sure these aren't overridden.
+      @for $i from 1 through $total-columns {
+        .tablet-col-#{$i} {
+          @include span-columns($i, $total-columns);
+        }
+      }
+      @for $i from 0 through $total-columns {
+        .tablet-push-#{$i} {
+          @include push($i, $total-columns);
+        }
+        .tablet-post-#{$i} {
+          @include post($i, $total-columns);
+        }
+      }
+      .tablet-omega {
+        @include omega;
+      }
+      .tablet-remove-omega {
+        @include remove-omega;
+      }
+    }
+  }
+
+  .no-sidebars .l-content {
+    @include span-columns($total-columns, $total-columns);
+  }
+
+  .l-sidebar {
+    clear: none;
+    @include span-columns(4 omega, $total-columns);
+  }
+
+  .l-footer-bottom {
+    @include span-columns(12, $total-columns);
+  }
+}
+
+@include at-breakpoint($desktop_break) {
+  $total-columns: 16;
+
+  .l-header-wrapper,
+  .l-content-wrapper,
+  .l-footer,
+  .l-footer-bottom-wrapper {
+    @include set-container-width;
+    width: $desktop_width; // static width
+    &.show-columns {
+      @include susy-grid-background;
+    }
+  }
+
+  a.site-logo {
+    @include span-columns(8, $total-columns);
+  }
+
+  .l-region-branding {
+    @include span-columns(8 omega, $total-columns);
+  }
+
+  .l-content {
+    @include span-columns(12, $total-columns);
+
+    .l-content-main {
+      @for $i from 1 through $total-columns {
+        .desktop-col-#{$i} {
+          @include span-columns($i, $total-columns);
+        }
+      }
+      @for $i from 0 through $total-columns {
+        .desktop-push-#{$i} {
+          @include push($i, $total-columns);
+        }
+        .desktop-post-#{$i} {
+          @include post($i, $total-columns);
+        }
+      }
+      .desktop-omega {
+        @include omega;
+      }
+      .desktop-remove-omega {
+        @include remove-omega;
+      }
+    }
+  }
+
+  .no-sidebars .l-content {
+    @include span-columns($total-columns, $total-columns);
+  }
+
+  .l-sidebar {
+    @include span-columns(4 omega, $total-columns);
+  }
+
+  .l-header,
+  .l-footer-bottom {
+    @include span-columns(16, $total-columns);
+  }
+}
+
+@include at-breakpoint($big_desktop_break) {
+  $total-columns: 20;
+
+  .l-header-wrapper,
+  .l-content-wrapper,
+  .l-footer,
+  .l-footer-bottom {
+    @include set-container-width;
+    width: $big_desktop_width; // static width
+    &.show-columns {
+      @include susy-grid-background;
+    }
+  }
+
+  a.site-logo {
+    @include span-columns(10, $total-columns);
+  }
+
+  .l-region-branding {
+    @include span-columns(10 omega, $total-columns);
+  }
+
+  .l-content {
+    @include span-columns(16, $total-columns);
+
+    .l-content-main {
+      @for $i from 1 through $total-columns {
+        .big-desktop-col-#{$i} {
+          @include span-columns($i, $total-columns);
+        }
+      }
+      @for $i from 0 through $total-columns {
+        .big-desktop-push-#{$i} {
+          @include push($i, $total-columns);
+        }
+        .big-desktop-post-#{$i} {
+          @include post($i, $total-columns);
+        }
+      }
+      .big-desktop-omega {
+        @include omega;
+      }
+      .big-desktop-remove-omega {
+        @include remove-omega;
+      }
+    }
+  }
+
+  .no-sidebars .l-content {
+    @include span-columns($total-columns, $total-columns);
+  }
+
+  .l-sidebar {
+    @include span-columns(4 omega, $total-columns);
+  }
+
+  .l-header,
+  .l-footer-bottom {
+    @include span-columns(20, $total-columns);
+  }
+}
+
