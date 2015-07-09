@@ -282,16 +282,16 @@ h1.site-name {
 /* Homepage splash */
 body.section-homepage{
 
-  /* Hide page content */
+  /* Hide page content, since we're only showing a block */
   .l-content-main{
     display: none;
   }
 
-  .homepage-splash
+  .homepage-splash{
 
     h1{
-      font-size:127px;
-      line-height: 130px;
+      font-size:60px;
+      line-height: 61px;
       margin:0;
 
       &:hover{
@@ -300,6 +300,26 @@ body.section-homepage{
     }
 
     h3{
-      margin:90px 0;
+      margin:50px 0;
     }
+
+    @include at-breakpoint($tab-break) {
+        h1{
+        font-size:90px;
+        line-height: 92px;
+      }
+    }
+
+    @include at-breakpoint($desktop-break) {
+      h1{
+        font-size:127px;
+        line-height: 130px;
+      }
+      h3{
+        margin:90px 0;
+      }
+    }
+
+
+  }
 }
